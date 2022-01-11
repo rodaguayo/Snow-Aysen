@@ -5,8 +5,7 @@ library("plotly")
 library("RColorBrewer")
 library("climdex.pcic")
 library("TTAinterfaceTrendAnalysis")
-library("tools")
-library("hyfo")
+
 
 ## PP, Tmax, Tmin data
 pp_data<-read.csv("C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Data/PP_data_d.csv")
