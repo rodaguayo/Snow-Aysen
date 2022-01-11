@@ -6,9 +6,9 @@ library("RColorBrewer")
 
 Sys.setenv(PATH=paste0("C:/Users/rooda/AppData/Local/Programs/orca;", Sys.getenv("PATH")))
 
-data_pp  <-read.csv("C:/Users/rooda/Dropbox/Patagonia/Trends/Trends_Precipitation.csv")
-data_t2m <-read.csv("C:/Users/rooda/Dropbox/Patagonia/Trends/Trends_Temperature.csv")
-data_q   <-read.csv("C:/Users/rooda/Dropbox/Patagonia/Trends/Trends_Streamflow.csv")
+data_pp  <-read.csv("C:/Users/rooda/Dropbox/Patagonia/MS2 results/Trends_Precipitation.csv")
+data_t2m <-read.csv("C:/Users/rooda/Dropbox/Patagonia/MS2 results/Trends_Temperature.csv")
+data_q   <-read.csv("C:/Users/rooda/Dropbox/Patagonia/MS2 results/Trends_Streamflow.csv")
 data_pp$Zone  <- factor(data_pp$Zone, levels = c("Northern", "Center", "Southern"))
 data_t2m$Zone <- factor(data_t2m$Zone, levels = c("Northern", "Center", "Southern"))
 data_q$Zone   <- factor(data_q$Zone, levels = c("Northern", "Center", "Southern"))
