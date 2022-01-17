@@ -29,8 +29,8 @@ pp_data<-subset(pp_data, date >= min(period) & date <= max(period))
 
 t2m_shape <-read.csv("C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Data/T2M_metadata.csv")
 t2m_shape <-vect(t2m_shape, geom=c("longitude", "latitude"), crs = "+init=epsg:4326")
-t2m_data <-read.csv("C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Data/T2Mmax_data_d.csv")
-t2m_min  <-read.csv("C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Data/T2Mmin_data_d.csv")
+t2m_data <-read.csv("C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Data/T2Mmax_data_d.csv", colClasses = c("character",rep("numeric",6)))
+t2m_min  <-read.csv("C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Data/T2Mmin_data_d.csv", colClasses = c("character",rep("numeric",6)))
 
 for (i in 2:ncol(t2m_data)) {t2m_data[,i] <- rowMeans(cbind(t2m_data[,i],t2m_min[,i]))}
 t2m_data$date<-as.Date(t2m_data$date, format = "%Y-%m-%d")
