@@ -15,10 +15,10 @@ f <- list(family = "Verdana", size = 16)
 f2 <- list(family = "Verdana", size = 12)
 
 x <- list(titlefont = f, tickfont = f2, ticks = "outside")
-y <- list(title = "Snow depth (m)", titlefont = f, tickfont = f2, ticks = "outside", zeroline = F)
+y <- list(title = "Snow depth (cm)", titlefont = f, tickfont = f2, dtick = 40, ticks = "outside", zeroline = F)
 legend <- list(orientation = "h", x = 0.05, y = 1.15)
 
-fig1 <- plot_ly(data, y = ~snow_depth_m, x = ~stake, type = "box", color = ~Date, colors = brewer.pal(10, "YlGnBu")[3:9])
+fig1 <- plot_ly(data, y = ~snow_depth_m*100, x = ~stake, type = "box", color = ~Date, colors = brewer.pal(10, "YlGnBu")[3:9])
 fig1 <- fig1 %>% layout(xaxis = x, yaxis = y, showlegend = TRUE)
 fig1 <- fig1 %>% layout(plot_bgcolor="rgb(235, 235, 235)")
 fig1 <- fig1 %>% layout(legend = legend, boxmode = "group")
@@ -34,6 +34,6 @@ fig2
 
 server <- orca_serve()
 setwd("C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Figures/")
-server$export(fig1, file = "Figure7a_snow.png", width = 950, height = 400, scale = 3)
-server$export(fig2, file = "Figure7b_swe.png", width = 950, height = 400, scale = 3)
+server$export(fig1, file = "Figure6a_snow.png", width = 950, height = 400, scale = 3)
+server$export(fig2, file = "Figure6b_swe.png", width = 950, height = 400, scale = 3)
 server$close()
