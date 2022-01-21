@@ -48,3 +48,10 @@ data_CIEP<-read.csv("C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Data/raw_dat
 data_CIEP[,1]<-as.POSIXct(data_CIEP[,1], format="%Y.%m.%d %H:%M", tz = "America/Santarem", usetz=TRUE) 
 data_CIEP<-hourly_to_day(data_CIEP)
 write.csv(data_CIEP, "C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Data/raw_data/data_CIEPc.csv", na = "", row.names = FALSE)
+
+data_DGA<-read.csv("C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Data/raw_data/El_Fraile_DGA.csv")
+data_DGA[,1]<-as.POSIXct(data_DGA[,1], format="%Y-%m-%d %H:%M", tz = "America/Santarem", usetz=TRUE) 
+data_DGA<-hourly_to_day(data_DGA)
+write.csv(data_DGA, "C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Data/raw_data/El_Fraile_DGAc.csv", na = "", row.names = FALSE)
+
+
