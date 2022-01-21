@@ -5,7 +5,7 @@ library("raster")
 library("readxl")
 library("Evapotranspiration")
 
-period <- seq(from = as.POSIXct('2015-12-31', tz="UTC"), to = as.POSIXct("2021-12-10", tz="UTC"), by = "day")
+period <- seq(from = as.POSIXct('2016-01-01', tz="UTC"), to = as.POSIXct("2021-12-10", tz="UTC"), by = "day")
 t2m_max_c2<-rast("C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Results/T2M_max_Corrected.nc")
 t2m_min_c2<-rast("C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Results/T2M_min_Corrected.nc")
 dem_hr<-rast("C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/GIS/dem_f.tif")
@@ -36,6 +36,6 @@ PET_HS<-setNames(PET_HS, period)
 PET_HS_m <- tapp(PET_HS, strftime(time(PET_HS),format="%Y"), fun = sum, na.rm = TRUE)
 PET_HS_m <- mean(PET_HS_m[[-c(1,nlyr(PET_HS_m))]])
 
-writeRaster(PET_HS_m, "PET_mean.tif", overwrite = TRUE)
+writeRaster(PET_HS_m, "C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Results/PET_mean.tif", overwrite = TRUE)
 writeCDF(PET_HS, "C:/Users/rooda/Dropbox/Proyectos/Semilla-Aysen/Results/PET_Corrected.nc", 
          overwrite=TRUE, varname="pet", unit="mm", longname="Potential Evapotranspiration", zname="time", compression = 9)
